@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>2D Cube</title>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Spectral&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+        <link href="./css/2d_cube.css" rel="stylesheet">
+        
+		<script src="js/cube.js"></script>
+		<script src="js/2d_cube.js"></script>
+        
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>2D Cube</h1>
+            <div id="userBox" class="user">
+                <div class="control">
+                    
+                    <div id="readyGameControl" class="readyGameControl">
+                        <img src="./image/shuffle.png" id="shuffle">
+                        <img src="./image/refresh.png" id="refresh">
+                        <img src="./image/import.png" id="import">
+                        <img src="./image/export.png" id="export">
+                    </div>
+                    <div id="inGameControl" class="inGameControl" hidden>
+                        <img src="./image/surrender.png" id="surrender">
+                    </div>
+                </div>
+                <h2 id="userH">USER</h2>
+                <div class = "cell U">
+                    <p><b id = "UL">◀</b> U <b id = "UR">▶</b></p>
+                    <canvas id = "userU" width = 90 height = 90></canvas>
+                </div>
+                <div class = "cell L">
+                    <p><b id = "LL">◀</b> L <b id = "LR">▶</b></p>
+                    <canvas id = "userL" width = 90 height = 90></canvas>
+                </div>
+                <div class = "cell F">
+                    <p><b id = "FL">◀</b> F <b id = "FR">▶</b></p>
+                    <canvas id = "userF" width = 90 height = 90></canvas>
+                </div>
+                <div class = "cell R">
+                    <p><b id = "RL">◀</b> R <b id = "RR">▶</b></p>
+                    <canvas id = "userR" width = 90 height = 90></canvas>
+                </div>
+                <div class = "cell B">
+                    <p><b id = "BL">◀</b> B <b id = "BR">▶</b></p>
+                    <canvas id = "userB" width = 90 height = 90></canvas>
+                </div>
+                <div class = "cell D">
+                    <p><b id = "DL">◀</b> D <b id = "DR">▶</b></p>
+                    <canvas id = "userD" width = 90 height = 90></canvas>
+                </div>
+            </div>
+            <div id="aiBox" class="ai">
+                <h2 id="aiH">AI</h2>
+                <div class = "cell U">
+                    <canvas id = "aiU" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell L">
+                    <canvas id = "aiL" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell F">
+                    <canvas id = "aiF" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell R">
+                    <canvas id = "aiR" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell B">
+                    <canvas id = "aiB" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell D">
+                    <canvas id = "aiD" width = 60 height = 60></canvas>
+                </div>
+            </div>
+            <div id="etcBox" class="etc">
+                <h2 id="etcH">ETC</h2>
+                <div class = "cell U">
+                    <canvas id = "etcU" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell L">
+                    <canvas id = "etcL" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell F">
+                    <canvas id = "etcF" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell R">
+                    <canvas id = "etcR" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell B">
+                    <canvas id = "etcB" width = 60 height = 60></canvas>
+                </div>
+                <div class = "cell D">
+                    <canvas id = "etcD" width = 60 height = 60></canvas>
+                </div>
+            </div>
+            <div id="battleBox" class="box">
+              <label id="battleDesc" for="battle">Battle!</label>
+              <input id="battle" type="button">
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+@import 'reset.css';
+@import 'cube.css';
+
+.user {
+    background-color: #f4f5f9;
+    border-radius: 15px;
+}
+.ai {
+    background-color: #c9d6de;
+    border-radius: 15px;
+}
+.etc {
+    background-color: #d4dfe6;
+    border-radius: 15px;
+}
+
+.cell {
+    position: absolute;
+    text-align: center;
+}
+
+p {
+    margin: 2px 0;
+    font-size: 1vw;
+}
+
+canvas {
+    width: 100%;
+}
+
+.U {
+    left: 30%;
+    top: 11%;
+} .L {
+    left: 7%;
+    top: 40%;
+} .F {
+    left: 30%;
+    top: 40%;
+} .R {
+    left: 53%;
+    top: 40%;
+} .B {
+    left: 76%;
+    top: 40%;
+} .D {
+    left: 30%;
+    top: 69%;
+}

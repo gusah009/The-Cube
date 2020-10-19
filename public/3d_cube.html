@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>3D Cube</title>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Spectral&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+        <link href="./css/3d_cube.css" rel="stylesheet">
+
+		<script src="js/cube.js"></script>
+		<script src="js/3d_cube.js" type="module"></script>        
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>3D Cube</h1>
+            <div id="userBox" class="user">
+                <div class="control">
+                    <div id="readyGameControl" class="readyGameControl">
+                        <img src="./image/shuffle.png" id="shuffle">
+                        <img src="./image/refresh.png" id="refresh">
+                        <img src="./image/import.png" id="import">
+                        <img src="./image/export.png" id="export">
+                    </div>
+                    <div id="inGameControl" class="inGameControl" hidden>
+                        <img src="./image/surrender.png" id="surrender">
+                    </div>
+                </div>
+                <h2 id="userH">USER</h2>
+            </div>
+            <div id="aiBox" class="ai">
+                <h2 id="aiH">AI</h2>
+            </div>
+            <div id="etcBox" class="etc">
+                <h2 id="etcH">ETC</h2>
+            </div>
+            <div id="battleBox" class="box">
+              <label id="battleDesc" for="battle">Battle!</label>
+              <input id="battle" type="button">
+            </div>
+        </div>
+        
+    </body>
+</html>

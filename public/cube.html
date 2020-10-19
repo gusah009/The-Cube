@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang = "ko">
+	<head>
+		<title>Cube 전개도</title>
+		<script src="js/cube.js"></script>
+		<script>
+			const cube = new Cube();
+			/*
+			   U0
+			L1 F2 R3 B4
+			   D5
+			*/
+			const WIDTH = 90;
+			const HEIGHT = 90;
+			
+			let test;
+			let stack;
+			onload = function() {
+				
+				const canvas = [
+					document.getElementById('canvasU'),
+					document.getElementById('canvasL'),
+					document.getElementById('canvasF'),
+					document.getElementById('canvasR'),
+					document.getElementById('canvasB'),
+					document.getElementById('canvasD')
+				];
+				
+				const rotationLeft = [
+					document.getElementById('UL'),
+					document.getElementById('LL'),
+					document.getElementById('FL'),
+					document.getElementById('RL'),
+					document.getElementById('BL'),
+					document.getElementById('DL')
+				];
+				
+				const rotationRight = [
+					document.getElementById('UR'),
+					document.getElementById('LR'),
+					document.getElementById('FR'),
+					document.getElementById('RR'),
+					document.getElementById('BR'),
+					document.getElementById('DR')	
+				];
+				
+				stack = [];
+				
+				updateCube(canvas, cube.map);
+				const faceIndex = ['U', 'L', 'F', 'R', 'B', 'D'];
+				for (let i = 0; i < 6; i++) {
+					rotationLeft[i].onclick = function() {
+						cube.rotation(faceIndex[i], 'L');
+						updateCube(canvas, cube.map);
+						
+						if (cube.state === 'complete') {
+							stack = [];
+						} else {
+							stack.push([faceIndex[i],'R']);
+						}
+					};
+					rotationRight[i].onclick = function() {
+						cube.rotation(faceIndex[i], 'R');
+						updateCube(canvas, cube.map);
+						
+						if (cube.state === 'complete') {
+							stack = [];
+						} else {
+							stack.push([faceIndex[i],'L']);
+						}
+					};
+				}
+				
+				const solve = document.getElementById('solve');
+				
+				solve.onclick = function() {
+					if (stack.length > 0) {
+						const timer = setInterval(function() {
+							const data = stack.pop();
+							
+							cube.rotation(data[0], data[1]);
+							updateCube(canvas, cube.map);
+							
+							if (stack.length === 0) {
+								clearInterval(timer);
+							}
+						}, 500);
+					}
+				}
+			};
+			
+			function drawCell(ctx, xd, yd, color) {
+				const sx = xd * WIDTH / 3;
+				const sy = yd * HEIGHT / 3;
+				
+				ctx.fillStyle = color;
+				ctx.fillRect(sx, sy, WIDTH /3, HEIGHT / 3);
+				ctx.strokeRect(sx, sy, WIDTH /3, HEIGHT / 3);
+			}
+			
+			function updateCube(canvas, map) {
+				const color = ['red', 'blue', 'orange', 'pink', 'yellow', 'green'];
+				
+				
+				for (let i = 0; i < 6; i++) {
+					const ctx = canvas[i].getContext('2d');
+				
+					for (let j = 0; j < 3; j++) {
+						for (let k = 0; k < 3; k++) {
+							drawCell(ctx, k, j, color[map[i][j][k]]);
+						}
+					}
+				}
+			}
+			
+		</script>
+		<script>
+			
+		</script>
+		<style>
+			
+			.cell {
+				position: absolute;
+				width: 90px;
+				text-align: center;
+			}
+			
+			p {
+				margin: 2px 0;
+			}
+			
+			canvas {
+				border: 2px dashed gray;
+			}
+			
+			.U {
+				left: 120px;
+				top: 0px;
+			} .L {
+				left: 20px;
+				top: 120px;
+			} .F {
+				left: 120px;
+				top: 120px;
+			} .R {
+				left: 220px;
+				top: 120px;
+			} .B {
+				left: 320px;
+				top:120px;
+			} .D {
+				left: 120px;
+				top: 240px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class = "wrap">
+			<div class = "cell U">
+				<p>
+					<b id = "UL">◀</b> U <b id = "UR">▶</b>
+				</p>
+				<canvas id = "canvasU" width = 90 height = 90></canvas>
+			</div>
+			<div class = "cell L">
+				<p>
+					<b id = "LL">◀</b> L <b id = "LR">▶</b>
+				</p>
+				<canvas id = "canvasL" width = 90 height = 90></canvas>
+			</div>
+			<div class = "cell F">
+				<p>
+					<b id = "FL">◀</b> F <b id = "FR">▶</b>
+				</p>
+				<canvas id = "canvasF" width = 90 height = 90></canvas>
+			</div>
+			<div class = "cell R">
+				<p>
+					<b id = "RL">◀</b> R <b id = "RR">▶</b>
+				</p>
+				<canvas id = "canvasR" width = 90 height = 90></canvas>
+			</div>
+			<div class = "cell B">
+				<p>
+					<b id = "BL">◀</b> B <b id = "BR">▶</b>
+				</p>
+				<canvas id = "canvasB" width = 90 height = 90></canvas>
+			</div>
+			<div class = "cell D">
+				<p>
+					<b id = "DL">◀</b> D <b id = "DR">▶</b>
+				</p>
+				<canvas id = "canvasD" width = 90 height = 90></canvas>
+			</div>
+		</div>
+		<button id = "solve">solve</button>
+	</body>
+</html>

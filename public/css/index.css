@@ -1,0 +1,60 @@
+@import 'reset.css';
+
+html,
+body {
+    background: #566270;
+}
+
+.wrap {
+    position: absolute;
+    
+    width: 80%;
+    height: 60%;
+    
+    left: 10%;
+    top: 20%;
+    
+    background: #E3E3E3;
+    border-radius: 40px;
+    
+    font-family: 'Rubik Mono One', serif;
+    
+    text-align: center;
+}
+
+h1 {
+    height: 30%;
+    font-size: 8vh;
+	line-height: normal;
+	vertical-align: middle;
+    text-decoration: underline;
+}
+
+.thumbnail {
+    position: absolute;
+    
+    width: 40%;
+    height: 60%;
+    
+    top: 35%;
+    
+    border-radius: 60px;
+    transition: all 0.4s ease;
+}
+
+.thumbnail:hover{
+    top: 20%;
+    border-radius: 10px;
+}
+
+._2d {
+    background: url(../image/2d_tmp.png) no-repeat center;
+    background-size: cover;
+    left: 5%;
+}
+
+._3d {
+    background: url(../image/3d_tmp.png) no-repeat center;
+    background-size: cover;
+    left: 55%;
+}
